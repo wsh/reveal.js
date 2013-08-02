@@ -169,15 +169,29 @@ class DepositTransaction {
                 <section>
 				    <pre>
                         <code data-trim class="java">
-interface CanadaBalance {
+interface CanadaBalanceable {
     public double balanceEh(){
 }
 
-class SavingsAccount implements Deposit, BankProduct, CanadaBalance { /* ... */ }
+class SavingsAccount implements Deposit, BankProduct, CanadaBalanceable { /* ... */ }
 
-class CheckingAccount implements Deposit, BankProduct, CanadaBalance { /* ... */ }
+class CheckingAccount implements Deposit, BankProduct, CanadaBalanceable { /* ... */ }
 
-class CertificateOfDeposit implements Deposit, BankProduct, CanadaBalance { /* ... */ }                       
+class CertificateOfDeposit implements Deposit, BankProduct, CanadaBalanceable { /* ... */ }                       
+                        </code>
+                    </pre>
+                </section>
+                
+                <section>
+				    <pre>
+                        <code data-trim class="java">
+class CanadaBalance {
+  public double balanceEh(SavingsAccount sa){ /* ... */ }
+  
+  public double balanceEh(CheckingAccount ca){ /* ... */ }
+  
+  public double balanceEh(CertificateOfDeposit cd){ /* ... */ } */
+}                    
                         </code>
                     </pre>
                 </section>
@@ -206,9 +220,7 @@ class CertificateOfDeposit implements Deposit, BankProduct, CanadaBalance { /* .
                         <code data-trim class="ruby">
                         # ... following a prior declaration of SavingsAccount
 class SavingsAccount
-    def canada_balance
-    # ...
-    end
+    include CanadaBalanceable
 end
                         </code>
                     </pre>
@@ -217,7 +229,34 @@ end
                 </section>
                 
                 <section>
-                    <h2>Protocols and Typeclasses</h2>
+                    <h2>Protocols</h2>
+                    <pre>
+                        <code data-trim class="clojure">
+                        (defprotocol CanadaBalanceable
+    (balEh [acct]
+        ; ...
+    ))
+
+(extend SavingsAccount
+    CanadaBalanceable
+    (balEh [acct]
+        ; ...
+    ))
+                        </code>
+                    </pre>
+                </section>
+                
+                <section>
+                    <h2>Typeclasses</h2>
+                    <pre>
+                        <code data-trim class="haskell">
+                        class CanadaBalanceable a where
+    balanceEh :: a -> Double
+    
+instance CanadaBalanceable SavingsAccount where
+    balanceEh (Deposit a) = -- implementation
+                        </code>
+                    </pre>
                 </section>
 			</div>
 
