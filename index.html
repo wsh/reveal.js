@@ -38,7 +38,7 @@
 			<div class="slides">
 				<section>
 					<h1>Supercali&ndash;fragilistic&ndash;<br />expi<em>polymorphic!</em></h1>
-					<h3>Differing Approaches to Abstraction</h3>
+					<h3>Different Approaches to Abstraction</h3>
 					<p>
 						<small><a href="http://willhayworth.com">Will Hayworth</a> / <a href="http://twitter.com/_wsh">@_wsh</a><br />
 						<a href="http://lab49.com">Lab49</a> / August 2, 2013</small>
@@ -48,7 +48,7 @@
 				<section>
 					<h2>Why?</h2>
 					<p>
-					    Being abstract permits faster development through reuse and fewer lines of code. Fewer lines of code means more time for testing, new features, and of course ragers.
+					    Abstraction permits faster development through reuse and fewer lines of code. Fewer lines of code means more time for testing, new features, and of course ragers.
 				    </p>
 				</section>
 				
@@ -59,6 +59,59 @@
 				<section>
 				    <blockquote cite="http://dl.acm.org/citation.cfm?id=988122" />An effort to trace the roots of the epistemological base of Smalltalk&mdash;classes and instances&mdash;leads one all of the [way] back to the work of Plato...</blockquote>
 				    <small><a href="http://dl.acm.org/citation.cfm?id=988122">Shoch, 1979</a></small>
+				</section>
+				
+				<section>
+				    We work in finance, so let's talk about:<br />
+				    <ul>
+				        <li>Savings accounts</li>
+				        <li>Checking accounts</li>
+				        <li>Certificates of deposit</li>
+				    </ul>
+				</section>
+				
+				<section>
+				    <h1>How are these things alike?</h2>
+				</section>
+				
+				<section>
+				    <h2>What they are</h2>
+				    <ul>
+				        <li class="fragment" data-fragment-index="0">Deposits</li>
+				        <li class="fragment" data-fragment-index="1">Bank products</li>
+				    </ul>
+				</section>
+				
+				<section>
+				    <pre>
+                        <code data-trim class="java">
+interface Deposit {
+  public void addMoney(double amount);
+}
+
+interface BankProduct {
+  public Bank getBank();
+}
+
+class Bank { /* ... */ }
+
+class SavingsAccount implements Deposit, BankProduct { /* ... */ }
+
+class CheckingAccount implements Deposit, BankProduct { /* ... */ }
+
+class CertificateOfDeposit implements Deposit, BankProduct { /* ... */ }                       
+                        </code>
+                    </pre>
+                </section>
+				
+				<section>
+				    <h2>What they do</h2>
+				    <ul>
+				        <li class="fragment" data-fragment-index="0">Have values in dollars</li>
+				        <li class="fragment" data-fragment-index="1">Pay interest</li>
+				    </ul>
+				</section>
+				
 			</div>
 
 		</div>
