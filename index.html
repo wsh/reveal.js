@@ -133,7 +133,63 @@ class DepositTransaction {
                 </section>
                 
                 <section>
-                    <h1>Extensions</h1>
+                    <h1>Introducing the NINJA</h1>
+                    <code class="fragment">NonInterestNanoJumboAccount</code>
+                </section>
+                
+                <section>
+                    <pre>
+                        <code data-trim class="java">
+                        class Ninja implements Deposit, BankProduct { /* ... */ }
+                        </code>
+                    </pre>
+                </section>
+                
+                <section>
+				    <pre>
+                        <code data-trim class="java">
+class DepositTransaction {
+  /* enumerate instances of Deposit here, otherwise in function */
+  // public void actOn(SavingsAccount sa){ /* ... */ }
+  
+  // public void actOn(CheckingAccount ca){ /* ... */ }
+  
+  // public void actOn(CertificateOfDeposit cd){ /* ... */ } */
+  
+  public void actOn(Ninja n){ /* ... */ } // EVERYWHERE
+}                    
+                        </code>
+                    </pre>
+                </section>
+                
+                <section>
+                    <h1>Introducing CanadaBalance</h1>
+                </section>
+                
+                <section>
+				    <pre>
+                        <code data-trim class="java">
+interface CanadaBalance {
+    public double balanceEh(){
+}
+
+class SavingsAccount implements Deposit, BankProduct, CanadaBalance { /* ... */ }
+
+class CheckingAccount implements Deposit, BankProduct, CanadaBalance { /* ... */ }
+
+class CertificateOfDeposit implements Deposit, BankProduct, CanadaBalance { /* ... */ }                       
+                        </code>
+                    </pre>
+                </section>
+                
+                <section>
+                    <h2>No matter which approach you choose,
+                    <em>something</em> is a pain in the ass.</h2>
+                </section>
+                
+                <section>
+                    <h1>Expression Problem</h1>
+                    <small><a href="http://homepages.inf.ed.ac.uk/wadler/papers/expression/expression.txt"> Wadler, 1998</a></small>
                 </section>
                 
                 <section>
