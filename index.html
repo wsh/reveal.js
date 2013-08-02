@@ -112,6 +112,37 @@ class CertificateOfDeposit implements Deposit, BankProduct { /* ... */ }
 				    </ul>
 				</section>
 				
+				<section>
+				    <pre>
+                        <code data-trim class="java">
+class DepositTransaction {
+  /* enumerate instances of Deposit here, otherwise in function */
+  public void actOn(SavingsAccount sa){ /* ... */ }
+  
+  public void actOn(CheckingAccount ca){ /* ... */ }
+  
+  public void actOn(CertificateOfDeposit cd){ /* ... */ }
+}                    
+                        </code>
+                    </pre>
+                </section>
+                
+                <section>
+                    <em>Object-oriented</em> languages tend to prefer the former approach&mdash;<br />noun-based, or <em>subtype</em>, polymorphism.<br />
+                    <em>Functional</em> languages tend to prefer the latter approach&mdash;<br />verb-based, or <em>parametric</em>, polymorphism.
+                </section>
+                
+                <section>
+                    <h1>Extensions</h1>
+                </section>
+                
+                <section>
+                    <h2>Open classes</h2>
+                </section>
+                
+                <section>
+                    <h2>Protocols</h2>
+                </section>
 			</div>
 
 		</div>
