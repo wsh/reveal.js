@@ -193,11 +193,31 @@ class CertificateOfDeposit implements Deposit, BankProduct, CanadaBalance { /* .
                 </section>
                 
                 <section>
-                    <h2>Open classes</h2>
+                    <h1>Bad solutions</h1>
+                    <ul>
+                        <li class="fragment">More interfaces (modifying working existing code)</li>
+                        <li class="fragment">Multiple inheritance (need I even...)</li>
+                    </ul>
                 </section>
                 
                 <section>
-                    <h2>Protocols</h2>
+                    <h2>Open classes</h2>
+                    <pre>
+                        <code data-trim class="ruby">
+                        # ... following a prior declaration of SavingsAccount
+class SavingsAccount
+    def canada_balance
+    # ...
+    end
+end
+                        </code>
+                    </pre>
+                    <span class="fragment">All the power of dynamic typing...<br /></span>
+                    <span class="fragment"><strong>with all the power of dynamic typing.</strong></span>
+                </section>
+                
+                <section>
+                    <h2>Protocols and Typeclasses</h2>
                 </section>
 			</div>
 
