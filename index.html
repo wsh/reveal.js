@@ -247,6 +247,27 @@ end
                 </section>
                 
                 <section>
+                    <h2>Interfaces</h2>
+                    <pre>
+                        <code data-trim class="go">
+                        type CanadaBalanceable interface {
+	balEh() int
+}
+
+type BankAccount /* ... */
+
+func (ba BankAccount) balEh() int {
+	/* ... */
+}
+
+func checkBalance(c CanadaBalanceable) int {
+	return c.balEh()
+}
+                        </code>
+                    </pre>
+                </section>
+                
+                <section>
                     <h2>Typeclasses</h2>
                     <pre>
                         <code data-trim class="haskell">
