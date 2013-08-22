@@ -250,11 +250,11 @@ end
                     <h2>Interfaces</h2>
                     <pre>
                         <code data-trim class="go">
-                        type CanadaBalanceable interface {
+                        type BankAccount /* ... */
+
+type CanadaBalanceable interface {
 	balEh() int
 }
-
-type BankAccount /* ... */
 
 func (ba BankAccount) balEh() int {
 	/* ... */
